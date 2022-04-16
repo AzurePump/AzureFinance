@@ -7,6 +7,7 @@ plugins {
 
 taboolib {
     install("common")
+    install("module-configuration")
     install("platform-bukkit")
     classifier = null
     version = "6.0.7-52"

@@ -1,9 +1,0 @@
-prefix: 'AzureFinance'
-help-tips: '&aInput &a/&e{0} &b help &a. to show help'
-help-main:
-  - '&6========================================'
-  - '&a/&e{prefix} &b help give &c- &a. give Help'
-  - '&a/&e{prefix} &b help donate &c- &a. donate Help'
-  - '&a/&e{prefix} &b help view &c- &a. information Help'
-  - '&a/&e{prefix} &b help list &c- &a Rank Help.'
-  - '&6========================================'
