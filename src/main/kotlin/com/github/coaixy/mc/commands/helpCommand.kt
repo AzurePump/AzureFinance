@@ -9,7 +9,7 @@ val list:List<String> = lang.HELP_TEXT
 val helpCommand = subCommand {
     execute<ProxyCommandSender>{sender, context, argument ->
         for (message:String in list){
-            sender.sendMessage(extra.colored(message))
+            sender.sendMessage(extra.colored(extra.prefix(message).toString()))
         }
     }
 

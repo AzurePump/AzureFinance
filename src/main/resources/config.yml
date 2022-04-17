@@ -1,1 +1,8 @@
-
+#允许玩家查看别人信息
+view: true
+#开启排行榜
+list: true
+#开启捐赠
+donate: true
+#支持交易
+give: true

@@ -4,6 +4,6 @@ help-main:
   - '&6========================================'
   - '&a/&e{prefix} &b help give &c- &a查看给予帮助.'
   - '&a/&e{prefix} &b help donate &c- &a查看捐赠帮助.'
-  -   - '&a/&e{prefix} &b help view &c- &a查看显示信息帮助.'
+  - '&a/&e{prefix} &b help view &c- &a查看显示信息帮助.'
   - '&a/&e{prefix} &b help list &c- &a查看排名帮助.'
   - '&6========================================'

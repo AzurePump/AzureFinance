@@ -14,13 +14,25 @@ val langObject:YamlConfiguration
         val path: String = getDataFolder().path + "\\lang.yml"
         return YamlConfiguration.loadConfiguration(newFile(path, create = false, folder = false))
     }
-object config {
 
+
+//主配置信息
+object config {
+    val GIVE_STAUTE:Boolean
+        get() = configObject.getBoolean("give")
+    val DONATE_STAUTE:Boolean
+        get() = configObject.getBoolean("donate")
+    val LIST_STAUTE:Boolean
+        get() = configObject.getBoolean("list")
+    val VIEW_STAUTE:Boolean
+        get() = configObject.getBoolean("view")
 }
 
+//语言信息
 object lang{
     val HELP_TEXT:List<String>
-    get() {
-        return langObject.getList("help-main") as List<String>
-    }
+        get() = langObject.getList("help-main") as List<String>
+    val Prefix_TEXT: String
+        get() = langObject.getString("prefix").toString()
+
 }
