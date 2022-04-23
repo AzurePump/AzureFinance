@@ -7,3 +7,8 @@ help-main:
   - '&a/&e{prefix} &b help view &c- &a查看显示信息帮助.'
   - '&a/&e{prefix} &b help list &c- &a查看排名帮助.'
   - '&6========================================'
+# {moneyOwn} 余额
+give-tip-failed: '&a/&e{prefix} &b 失败，请检查自身情况{moneyOwn}'
+# {aimPlayer} 目标
+# {moneyAct} 操作的金额
+give-tip-succeed: '&a/&e{prefix} &b 成功转账给{aimPlayer} {moneyAct}'

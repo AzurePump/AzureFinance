@@ -1,6 +1,7 @@
 package com.github.coaixy.mc.core
 
 
+import com.github.coaixy.mc.commands.giveCommand
 import com.github.coaixy.mc.commands.helpCommand
 import com.github.coaixy.mc.commands.viewCommand
 import taboolib.common.platform.command.CommandBody
@@ -27,4 +28,11 @@ object cmd {
         permissionDefault = PermissionDefault.TRUE
     )
     val view = viewCommand
+
+    @CommandBody(
+        optional = true,
+        permissionDefault = PermissionDefault.TRUE
+    )
+    val give = giveCommand
+
 }

@@ -16,7 +16,7 @@ object extra {
     fun prefix(text: String): String? {
         return text.replace("{prefix}",lang.Prefix_TEXT)
     }
-    fun rank(data: Map<String,Int>):Map<String,Int>{
+    fun rank(data: MutableMap<String,Int>): Map<String, Int> {
         return data.toList().sortedBy { it.second }.toMap()
     }
     fun getPlayerList():MutableList<String>{

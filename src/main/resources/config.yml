@@ -6,3 +6,5 @@ list: true
 donate: true
 #支持交易
 give: true
+#初始金额
+new: 1000

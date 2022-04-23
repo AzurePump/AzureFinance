@@ -14,6 +14,11 @@ val langObject:YamlConfiguration
         val path: String = getDataFolder().path + "\\lang.yml"
         return YamlConfiguration.loadConfiguration(newFile(path, create = false, folder = false))
     }
+val moneyObject:YamlConfiguration
+    get() {
+        val path: String = getDataFolder().path + "\\money.yml"
+        return YamlConfiguration.loadConfiguration(newFile(path, create = false, folder = false))
+    }
 
 
 //主配置信息
@@ -30,9 +35,11 @@ object config {
 
 //语言信息
 object lang{
-    val HELP_TEXT:List<String>
-        get() = langObject.getList("help-main") as List<String>
+
+    val HELP_TEXT:MutableList<String>
+        get() {
+            return langObject.getList("help-main") as MutableList<String>
+        }
     val Prefix_TEXT: String
         get() = langObject.getString("prefix").toString()
-
 }
