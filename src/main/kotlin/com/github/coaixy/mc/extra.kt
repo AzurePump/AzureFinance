@@ -1,10 +1,13 @@
 package com.github.coaixy.mc
 
 import com.github.coaixy.mc.core.lang
+import com.github.coaixy.mc.core.moneyObject
 import org.bukkit.Bukkit
 import taboolib.common.io.newFile
+import taboolib.common.platform.ProxyPlayer
 import taboolib.common.platform.function.getDataFolder
 import taboolib.common.platform.function.getProxyPlayer
+import java.lang.reflect.Proxy
 import java.util.*
 
 @Suppress("unused")
@@ -19,10 +22,23 @@ object extra {
     fun rank(data: MutableMap<String,Int>): Map<String, Int> {
         return data.toList().sortedBy { it.second }.toMap()
     }
-    fun getPlayerList():MutableList<String>{
+    fun getPlayerNameList():MutableList<String>{
         val path: String = getDataFolder().path + "\\players.txt"
         val content = newFile(path, create = false, folder = false).readText()
         return content.split("\n").toMutableList()
     }
-
+    fun getPlayerObject():MutableList<ProxyPlayer>{
+        val playerObjectList:MutableList<ProxyPlayer> = mutableListOf()
+        val playerNameList = getPlayerNameList()
+        if (playerNameList.size > 0 ){
+            for (i in playerNameList){
+                playerObjectList.add(getProxyPlayer(i)!!)
+            }
+            return playerObjectList
+        }
+        return playerObjectList
+    }
+    fun getPlayerMoney(name:String):Int{
+        return moneyObject.getInt(name)
+    }
 }

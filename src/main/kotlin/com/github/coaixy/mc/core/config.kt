@@ -21,6 +21,8 @@ val moneyObject:YamlConfiguration
     }
 
 
+
+
 //主配置信息
 object config {
     val GIVE_STAUTE:Boolean

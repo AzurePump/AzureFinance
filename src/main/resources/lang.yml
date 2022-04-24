@@ -12,3 +12,7 @@ give-tip-failed: '&a/&e{prefix} &b 失败，请检查自身情况{moneyOwn}'
 # {aimPlayer} 目标
 # {moneyAct} 操作的金额
 give-tip-succeed: '&a/&e{prefix} &b 成功转账给{aimPlayer} {moneyAct}'
+give-tip:
+  - '&6========================================'
+  - '&a/&e{prefix} &b give &c 【玩家名】 【金额】'
+  - '&6========================================'

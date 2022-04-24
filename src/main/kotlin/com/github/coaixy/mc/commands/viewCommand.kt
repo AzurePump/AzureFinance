@@ -15,7 +15,7 @@ val viewCommand = subCommand {
                 sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(argument)))
             }else{
                 sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(argument)))
-                val playerList:MutableList<String> = extra.getPlayerList()
+                val playerList:MutableList<String> = extra.getPlayerNameList()
                 val data:MutableMap<String,Int> = mutableMapOf()
                 for (i in playerList){
                     var money = moneyObject.getInt(i)
