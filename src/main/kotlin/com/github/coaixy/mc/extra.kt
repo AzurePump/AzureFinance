@@ -19,9 +19,6 @@ object extra {
     fun prefix(text: String): String? {
         return text.replace("{prefix}",lang.Prefix_TEXT)
     }
-    fun rank(data: MutableMap<String,Int>): Map<String, Int> {
-        return data.toList().sortedBy { it.second }.toMap()
-    }
     fun getPlayerNameList():MutableList<String>{
         val path: String = getDataFolder().path + "\\players.txt"
         val content = newFile(path, create = false, folder = false).readText()

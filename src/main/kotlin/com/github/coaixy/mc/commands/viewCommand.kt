@@ -10,31 +10,33 @@ import taboolib.common.platform.command.subCommand
 val viewCommand = subCommand {
     execute<ProxyCommandSender>{ sender, context, argument ->
         if (config.VIEW_STAUTE){
-            sender.sendMessage("&6========================================")
-            if (config.LIST_STAUTE){
-                sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(argument)))
+            val commandList:MutableList<String> = argument.split(" ") as MutableList<String>
+            sender.sendMessage(extra.colored("&6========================================"))
+            if (!config.LIST_STAUTE){
+                sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(commandList[1])))
             }else{
-                sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(argument)))
-                val playerList:MutableList<String> = extra.getPlayerNameList()
-                val data:MutableMap<String,Int> = mutableMapOf()
-                for (i in playerList){
-                    var money = moneyObject.getInt(i)
-                    data[i] = money
-                }
-                extra.rank(data)
-                var counter:Int = 1
-                for (i in data){
-                    if (i.key.equals(argument,true)){
-                        break
-                    }else{
-                        counter++
-                    }
-                }
-                sender.sendMessage(extra.colored("&c[AzureFinance]资产排名为:$counter"))
-
+                sender.sendMessage(extra.colored("&c[AzureFinance]目标余额为:"+ moneyObject.getInt(commandList[1])))
+                sender.sendMessage(extra.colored("&c[AzureFinance]目标排名为:"+ rank(commandList[1])))
             }
         }else{
             sender.sendMessage(extra.colored("&a"+ lang.Prefix_TEXT+":查看功能未开启"))
         }
     }
+}
+fun rank(playerName:String):Int{
+    var result = 0
+    val playerNames = extra.getPlayerNameList()
+    val playerMoneys = mutableListOf<Int>()
+    for (i in playerNames){
+        playerMoneys.add(moneyObject.getInt(i))
+    }
+    result = playerNames.size
+    for ((index,value) in playerNames.withIndex()){
+        if (value != playerName){
+            if (playerMoneys[index] < moneyObject.getInt(playerName)){
+                result--
+            }
+        }
+    }
+    return result+1
 }
